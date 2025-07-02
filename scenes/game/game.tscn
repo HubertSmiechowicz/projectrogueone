@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://b1d1u4r8ph13n"]
+[gd_scene load_steps=4 format=3 uid="uid://b1d1u4r8ph13n"]
 
-[node name="game" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://bacpfshlivv1p" path="res://scenes/player/player.tscn" id="1_sul5r"]
+[ext_resource type="Texture2D" uid="uid://cvixpwhkljdql" path="res://assets/Tiles/box.png" id="2_7h61r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sr1o"]
+size = Vector2(20.2, 20)
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_sul5r")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(8, 105)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-2, 1)
+scale = Vector2(4.34062, 1.1468)
+texture = ExtResource("2_7h61r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1.5, 0)
+scale = Vector2(15, 4.08)
+shape = SubResource("RectangleShape2D_0sr1o")
