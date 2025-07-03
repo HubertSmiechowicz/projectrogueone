@@ -29,12 +29,24 @@ public partial class Player : CharacterBody2D
 		{
 			_animationTree.Set("parameters/conditions/move", true);
 			_animationTree.Set("parameters/conditions/jump", false);
+			_animationTree.Set("parameters/conditions/dodge", false);
 
 			if (Input.IsActionJustPressed("jump"))
 			{
 				_velocity.Y = -JumpVelocity;
 				_animationTree.Set("parameters/conditions/move", false);
 				_animationTree.Set("parameters/conditions/jump", true);
+			}
+
+			if (Input.IsActionPressed("dodge"))
+			{
+				var direction = _velocity.X;
+				_velocity.X = 0f;
+				_velocity.Y = 0f;
+				_animationTree.Set("parameters/conditions/move", false);
+				_animationTree.Set("parameters/conditions/jump", false);
+				_animationTree.Set("parameters/conditions/dodge", true);
+				_animationTree.Set("parameters/Dodge/blend_position", direction);
 			}
 		}
 		else
