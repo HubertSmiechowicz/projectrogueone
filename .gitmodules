@@ -1,0 +1,3 @@
+[submodule "core-gameplay"]
+	path = core-gameplay
+	url = https://github.com/HubertSmiechowicz/core-gameplay.git
